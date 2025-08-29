@@ -13,6 +13,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- font hind-mudrai cdn -->
     <link href="https://fonts.cdnfonts.com/css/hind-madurai" rel="stylesheet" />
+    <!-- logo title  -->
+    <link
+      rel="shortcut icon"
+      href="https://i.postimg.cc/TPsgP7sm/578-5781804-icon-emergency-logo-png-transparent-png.png"
+      type="image/x-icon"
+    />
+
     <!-- font awsome cdn  -->
     <link
       rel="stylesheet"
@@ -22,8 +29,12 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>Emergency Hotline</title>
   </head>
+
   <body>
     <div
       class="min-h-[50px] flex flex-col md:flex-row justify-between items-center p-3"
@@ -40,7 +51,8 @@
         </div>
       </div>
       <div class="gap-2">
-        <button id="card-total"
+        <button
+          id="total-heart"
           class="btn btn-primary bg-[#41ff6b1a] text-black font-bold text-[20px] rounded-3xl border-none py-[12px] px-[36px]"
         >
           0 <i><img class="h-[30px]" src="./assets/heart.png" alt="" /></i>
@@ -48,12 +60,13 @@
         <button
           class="btn btn-primary bg-[#41ff6b1a] text-black font-bold text-[20px] rounded-3xl border-none py-[12px] px-[36px]"
         >
-          100 <i><img class="h-[30px]" src="./assets/coin.png" alt="" /></i>
+          <span id="total-coin">100</span>
+          <i><img class="h-[30px]" src="./assets/coin.png" alt="" /></i>
         </button>
         <button
           class="btn btn-primary text-[#ffffff] bg-[#00a63e] rounded-3xl border-none py-[12px] px-[36px] font-bold text-[16px]"
         >
-          Copy
+          Copy <span id="copy-count-total">0</span>
         </button>
       </div>
     </div>
@@ -74,25 +87,25 @@
         </p>
       </div>
     </section>
-    <div class="bg-[#f5fff6] flex flex-col md:flex-row ">
-      <section id="card-box"
-        class="gap-4 p-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full md:w-[75%]"
+
+    <div class="bg-[#f5fff6] flex flex-col lg:flex-row">
+      <section
+        id="card-box"
+        class="p-3 gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 w-full"
       >
-        <!-- card-1  -->
-        <div
-          class="h-auto sm:h-[360px] p-5 shadow-xl w-full rounded-2xl sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+        <!-- Card 1 -->
+        <div class="h-auto p-5 shadow-xl w-full rounded-2xl">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
               src="./assets/emergency.png"
               alt=""
             />
-            <i id="heart"
+            <i
+              id="heart"
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
               <h1 class="font-bold text-[20px] sm:text-[24px]">N</h1>
@@ -100,7 +113,6 @@
                 N
               </h2>
             </div>
-
             <div class="my-3">
               <h1 class="font-bold text-[28px] sm:text-[32px]">9</h1>
               <button
@@ -109,18 +121,16 @@
                 A
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -128,10 +138,8 @@
           </div>
         </div>
 
-        <!-- card-2  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+        <!-- Card 2 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -142,7 +150,6 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
               <h1 class="font-bold text-[20px] sm:text-[24px]">P</h1>
@@ -150,7 +157,6 @@
                 P
               </h2>
             </div>
-
             <div class="my-3">
               <h1 class="font-bold text-[28px] sm:text-[32px]">9</h1>
               <button
@@ -159,28 +165,25 @@
                 P
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-3  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 3 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -191,7 +194,6 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
               <h1 class="font-bold text-[20px] sm:text-[24px]">
@@ -201,7 +203,6 @@
                 Fire Service
               </h2>
             </div>
-
             <div class="my-3">
               <h1 class="font-bold text-[28px] sm:text-[32px]">999</h1>
               <button
@@ -210,28 +211,25 @@
                 Fire
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-4  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 4 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -242,7 +240,6 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
               <h1 class="font-bold text-[20px] sm:text-[24px]">A</h1>
@@ -250,7 +247,6 @@
                 A
               </h2>
             </div>
-
             <div class="my-3">
               <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
               <button
@@ -259,28 +255,25 @@
                 H
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-5  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 5 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -291,7 +284,6 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
               <h1 class="font-bold text-[20px] sm:text-[24px]">W</h1>
@@ -299,7 +291,6 @@
                 W
               </h2>
             </div>
-
             <div class="my-3">
               <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
               <button
@@ -308,77 +299,113 @@
                 H
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-6  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 6 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
-              src="./assets/emergency.png"
+              src="./assets/police.png"
               alt=""
             />
             <i
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
-              <h1 class="font-bold text-[20px] sm:text-[24px]">A</h1>
+              <h1 class="font-bold text-[20px] sm:text-[24px]">Police 2</h1>
               <h2 class="text-[#5c5c5c] font-[400] text-[16px] sm:text-[18px]">
+                Police
+              </h2>
+            </div>
+            <div class="my-3">
+              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
+              <button
+                class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
+              >
+                P
+              </button>
+            </div>
+            <div
+              class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
+            >
+              <button
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+              >
+                <i class="fa-regular fa-copy"></i> Copy
+              </button>
+              <button
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
+              >
+                <i class="fa-solid fa-phone"></i> Call
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
+          <div class="flex justify-between items-center">
+            <img
+              class="bg-[#ffe3e2] rounded-xl w-[70px]"
+              src="./assets/ambulance.png"
+              alt=""
+            />
+            <i
+              class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
+            ></i>
+          </div>
+          <div class="flex flex-col justify-between">
+            <div class="my-3">
+              <h1 class="font-bold text-[20px] sm:text-[24px]">Ambulance 2</h1>
+              <h2 class="text-[#5c5c5c] font-[400] text-[16px] sm:text-[18px]">
+                Ambulance
+              </h2>
+            </div>
+            <div class="my-3">
+              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
+              <button
+                class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
+              >
                 A
-              </h2>
-            </div>
-
-            <div class="my-3">
-              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
-              <button
-                class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
-              >
-                G
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-7  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 8 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -389,45 +416,40 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
-              <h1 class="font-bold text-[20px] sm:text-[24px]">E</h1>
+              <h1 class="font-bold text-[20px] sm:text-[24px]">Service 8</h1>
               <h2 class="text-[#5c5c5c] font-[400] text-[16px] sm:text-[18px]">
-                E
+                Service
               </h2>
             </div>
-
             <div class="my-3">
-              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
+              <h1 class="font-bold text-[28px] sm:text-[32px]">2</h1>
               <button
                 class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
               >
-                E
+                S
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
             </div>
           </div>
         </div>
-        <!-- card-8  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
+
+        <!-- Card 9 -->
+        <div class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full">
           <div class="flex justify-between items-center">
             <img
               class="bg-[#ffe3e2] rounded-xl w-[70px]"
@@ -438,84 +460,31 @@
               class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
             ></i>
           </div>
-
           <div class="flex flex-col justify-between">
             <div class="my-3">
-              <h1 class="font-bold text-[20px] sm:text-[24px]">B</h1>
+              <h1 class="font-bold text-[20px] sm:text-[24px]">Service 9</h1>
               <h2 class="text-[#5c5c5c] font-[400] text-[16px] sm:text-[18px]">
-                B
+                Service
               </h2>
             </div>
-
             <div class="my-3">
-              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
+              <h1 class="font-bold text-[28px] sm:text-[32px]">3</h1>
               <button
                 class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
               >
-                N
+                S
               </button>
             </div>
-
-            <!-- Bottom Buttons -->
             <div
               class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
             >
               <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#ffffff] border rounded-[8px] w-full sm:w-[48%] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
               >
                 <i class="fa-regular fa-copy"></i> Copy
               </button>
               <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
-              >
-                <i class="fa-solid fa-phone"></i> Call
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- card-9  -->
-        <div
-          class="h-auto sm:h-[360px] rounded-2xl p-5 shadow-xl w-full sm:w-[200px] md:w-[250px] lg:w-[300px]"
-        >
-          <div class="flex justify-between items-center">
-            <img
-              class="bg-[#ffe3e2] rounded-xl w-[70px]"
-              src="./assets/emergency.png"
-              alt=""
-            />
-            <i
-              class="fa-regular fa-heart text-[16px] sm:text-[18px] md:text-[20px]"
-            ></i>
-          </div>
-
-          <div class="flex flex-col justify-between">
-            <div class="my-3">
-              <h1 class="font-bold text-[20px] sm:text-[24px]">B</h1>
-              <h2 class="text-[#5c5c5c] font-[400] text-[16px] sm:text-[18px]">
-                B
-              </h2>
-            </div>
-
-            <div class="my-3">
-              <h1 class="font-bold text-[28px] sm:text-[32px]">1</h1>
-              <button
-                class="text-[#5c5c5c] font-[400] text-[14px] sm:text-[18px] bg-[#f2f2f2] rounded-full flex items-center py-[6px] px-[16px]"
-              >
-                T
-              </button>
-            </div>
-
-            <!-- Bottom Buttons -->
-            <div
-              class="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between"
-            >
-              <button
-                class="btn btn-primary bg-[#ffffff] border rounded-[8px] border-[#d4d6d5] w-full sm:w-[100px] md:w-[120px] font-normal text-[14px] sm:text-[16px] text-[#5c5c5c] flex items-center justify-center gap-2"
-              >
-                <i class="fa-regular fa-copy"></i> Copy
-              </button>
-              <button
-                class="btn btn-primary bg-[#00a63e] border-none text-white text-[14px] sm:text-[16px] w-full sm:w-[100px] md:w-[120px] rounded-[8px] flex items-center justify-center gap-2"
+                class="btn btn-primary bg-[#00a63e] border-none text-white w-full sm:w-[48%] rounded-[8px] flex items-center justify-center gap-2 text-[14px] sm:text-[16px]"
               >
                 <i class="fa-solid fa-phone"></i> Call
               </button>
@@ -523,9 +492,15 @@
           </div>
         </div>
       </section>
-      <section id="product-box" class="border-2 border-red-800 w-full md:w-[30%]">
-        <div class=" flex justify-between items-center p-2">
-          <h2 class="font-semibold text-[20px]"><i class="fa-regular fa-clock"></i> Call History</h2>
+
+      <section
+        id="product-box"
+        class="border-2 border-red-800 w-full md:w-[30%]"
+      >
+        <div class="flex justify-between items-center p-2">
+          <h2 class="font-semibold text-[20px]">
+            <i class="fa-regular fa-clock"></i> Call History
+          </h2>
           <button
             class="btn btn-primary text-[#ffffff] bg-[#00a63e] rounded-3xl border-none py-[12px] px-[36px] font-bold text-[16px]"
           >
@@ -534,5 +509,7 @@
         </div>
       </section>
     </div>
+
+    <script src="./scrept.js"></script>
   </body>
 </html>
