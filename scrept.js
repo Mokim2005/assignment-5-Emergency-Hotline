@@ -47,7 +47,7 @@ document.querySelectorAll(".fa-heart").forEach((heart) => {
     heart.classList.remove("fa-regular");
     heart.classList.add("fa-solid", "text-red-500");
 
-    alert("Heart Added! You liked this service.");
+   
   });
 });
 
