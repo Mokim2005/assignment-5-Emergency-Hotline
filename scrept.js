@@ -46,8 +46,6 @@ document.querySelectorAll(".fa-heart").forEach((heart) => {
     updateHeartUI();
     heart.classList.remove("fa-regular");
     heart.classList.add("fa-solid", "text-red-500");
-
-   
   });
 });
 
@@ -56,6 +54,7 @@ document.querySelectorAll(".fa-phone").forEach((phoneIcon) => {
   const callBtn = phoneIcon.closest("button") || phoneIcon.parentElement;
   callBtn.addEventListener("click", (e) => {
     const card = e.target.closest("div.h-auto");
+    alert("Are You  sure ? ");
     if (!card) return;
 
     const h1s = Array.from(card.querySelectorAll("h1"))
@@ -119,8 +118,7 @@ document.querySelectorAll(".fa-copy").forEach((copyIcon) => {
       let currentCount = parseInt(copyCountSpan.innerText) || 0;
       currentCount++;
       copyCountSpan.innerText = currentCount;
-
-      
+      alert("copyed the number",);
     });
   });
 });
@@ -128,7 +126,6 @@ document.querySelectorAll(".fa-copy").forEach((copyIcon) => {
 /* CLEAR HISTORY */
 clearBtn.addEventListener("click", () => {
   historyList.innerHTML = "";
-  alert("History Cleared!");
 });
 
 /* INIT */
